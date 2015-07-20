@@ -1,0 +1,26 @@
+{
+  "name": "robocop",
+  "version": "1.0.0",
+  "description": "Robocop is a code review tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siddharthkp/robocop"
+  },
+  "keywords": [
+    "code",
+    "review"
+  ],
+  "author": "Siddharth Kshetrapal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddharthkp/robocop/issues"
+  },
+  "homepage": "https://github.com/siddharthkp/robocop",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  }
+}
