@@ -11,4 +11,5 @@ GLOBAL.robocop = require('./src/robocop');
 require('./src/tasks-loader');
 require('./src/hook');
 require('./src/git-diff');
+require('./src/comment');
 
