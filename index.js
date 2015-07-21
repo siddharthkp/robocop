@@ -8,7 +8,7 @@ var server = app.listen(config.port, function () {
 app.use(bodyParser.json());
 
 GLOBAL.robocop = require('./src/robocop');
-require('./src/helpers-loader');
-require('./src/tasks-loader');
+require('require-all')(__dirname + '/src/helpers');
+require('require-all')(__dirname + '/' + config.tasks);
 require('./src/hook');
 
