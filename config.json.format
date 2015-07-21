@@ -1,4 +1,7 @@
 {
     "port": 4002,
-    "tasks": "../robocop-tasks"
+    "tasks": "../robocop-tasks",
+    "access_token": "",
+    "owner": "practo",
+    "repo": "practo"
 }
