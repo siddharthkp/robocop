@@ -8,6 +8,7 @@ var server = app.listen(config.port, function () {
 app.use(bodyParser.json());
 
 GLOBAL.robocop = require('./src/robocop');
+require('./src/register');
 require('./src/tasks-loader');
 require('./src/hook');
 require('./src/git-diff');
