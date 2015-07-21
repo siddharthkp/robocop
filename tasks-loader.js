@@ -1,3 +1,4 @@
-require("fs").readdirSync('./tasks').forEach(function(file) {
-      require("./tasks/" + file);
+var taskFolder = config.tasks;
+require("fs").readdirSync(taskFolder).forEach(function(file) {
+    require(taskFolder + '/' + file);
 });
