@@ -10,4 +10,5 @@ app.use(bodyParser.json());
 GLOBAL.robocop = require('./src/robocop');
 require('./src/tasks-loader');
 require('./src/hook');
+require('./src/git-diff');
 

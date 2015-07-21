@@ -1,4 +1,5 @@
 {
     "port": 4002,
-    "tasks": "../robocop-tasks"
+    "tasks": "../robocop-tasks",
+    "github_token": ""
 }
