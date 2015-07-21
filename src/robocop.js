@@ -8,9 +8,6 @@ module.exports = {
                 method: method
             };
             robocop.tasks.push(task);
-        },
-        comment: function(message) {
-            console.log(message);
         }
     }
 };

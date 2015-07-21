@@ -12,4 +12,5 @@ var github = require('./src/github');
 robocop.helpers.github = github.api;
 require('./src/tasks-loader');
 require('./src/hook');
+require('./src/comment');
 
