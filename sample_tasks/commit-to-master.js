@@ -1,7 +1,10 @@
 var method = function(payload) {
     if (payload.ref === 'refs/heads/master') {
         if (payload.head_commit.message.indexOf('Merge pull request #') === -1) {
-            robocop.helpers.comment(payload.head_commit, 'Commit on master!');
+            robocop.helpers.comment('commit', {
+                commit: payload.head_commit,
+                message: 'Commit to master!'
+            });
             return true;
         }
     }

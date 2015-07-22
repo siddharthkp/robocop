@@ -1,24 +1,41 @@
-var comment = function(commit, message) {
-    console.log(message);
-
-    var request = require('request');
-        var options = {
-            url: commit.url.replace('github.com/', 'api.github.com/repos/').replace('commit', 'commits') + '/comments?access_token=' + config.github_token,
-            method: 'POST',
-            headers: {
-                'User-Agent': 'robocop',
-                'Content-Type': 'application/json'
-            },
-            json: {
-                body: message
-            }
-        };
-
-        request(options, function(error, response, body) {
-            console.log(response.statusCode);
-        });
-
-}
+var comment = function(type, data) {
+    if (type === 'commit') commitComment(data);
+    else if (type === 'review') reviewComment(data);
+};
 
 robocop.helpers.comment = comment;
 
+var commitComment = function(data) {
+    var commit = data.commit;
+    var message = data.message;
+    var url = commit.url.replace('github.com/', 'api.github.com/repos/').replace('commit', 'commits') + '/comments?access_token=' + config.github_token;
+    var data = {
+        body: message
+    }
+    post(url, data);
+};
+
+var reviewComment = function(data) {
+    var pullRequest = data.pullRequest;
+    var url = pullRequest.url + '/comments?access_token=' + config.github_token;
+    delete data.pullRequest;
+    post(url, data);
+};
+
+function post(url, data, callback) {
+    var request = require('request');
+    var options = {
+        url: url,
+        method: 'POST',
+        headers: {
+            'User-Agent': 'robocop',
+            'Content-Type': 'application/json'
+        },
+        json: data
+    };
+
+    request(options, function(error, response, body) {
+        console.log(response.statusCode, url);
+        if (callback) callback(response.statusCode, body);
+    });
+}
