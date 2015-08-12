@@ -11,5 +11,6 @@ app.use(bodyParser.json());
 GLOBAL.robocop = require('./src/robocop');
 require('require-all')(__dirname + '/src/helpers');
 require('require-all')(__dirname + '/' + config.tasks);
+require('./src/home');
 require('./src/hook');
 
