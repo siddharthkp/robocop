@@ -27,10 +27,10 @@ var method = function(payload) {
 };
 
 var condition = function(payload) {
-    if (payload.event_type === 'pull_request' && ['opened', 'reopened'].indexOf(payload.action) !== -1) {
+    if (payload.event_type === 'pull_request' && ['opened', 'reopened', 'synchronize'].indexOf(payload.action) !== -1) {
         return true;
     }
 };
 
-robocop.helpers.register('Commit to master', condition, method);
+robocop.helpers.register('!important', condition, method);
 
