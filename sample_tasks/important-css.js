@@ -6,6 +6,7 @@ var method = function(payload) {
             filename = files[i].name;
             extension = filename.substr(filename.lastIndexOf('.'));
             if (extension === '.css') {
+                // TODO: Crappy code to check diff. Move this to helper
                 changes = files[i].changes;
                 for (var j = 0; j < changes.length; j++) {
                     if (changes[j][0] === '+') {
