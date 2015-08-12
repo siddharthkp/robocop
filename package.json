@@ -1,5 +1,5 @@
 {
-  "name": "robocop",
+  "name": "robo-cop",
   "version": "1.0.0",
   "description": "Robocop is a code review tool",
   "main": "index.js",
