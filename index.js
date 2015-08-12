@@ -3,7 +3,8 @@ GLOBAL.app = express();
 var bodyParser = require('body-parser');
 GLOBAL.config = require('./config.json');
 var server = app.listen(config.port, function () {
-      console.log('My friends call me Murphy. You call me... Robocop.');
+      console.log('My friends call me Murphy. You call me ...');
+      console.log('Robocop.');
 });
 app.use(bodyParser.json());
 
