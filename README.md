@@ -12,6 +12,7 @@ How to setup
 4. Add a [personal access token](https://github.com/settings/tokens) to `config.json`
 5. `node index.js` or `pm2 start index.js --name robocop` (recommeneded)
 6. Create a [webhook](https://developer.github.com/webhooks/creating/) and point it to  (server-where-robocop-is-running)/hook. You can host it on the cloud or use [ngrock](https://ngrok.com/)
+7. Add a directory in your repo and add the path to `config.json`. Check out sample_tasks for inspiration.
 
 
 
