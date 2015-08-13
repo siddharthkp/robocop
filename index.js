@@ -1,6 +1,9 @@
 var express = require('express');
+
 GLOBAL.app = express();
 var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
 GLOBAL.config = require('./config.json');
 GLOBAL.robocop = require('./src/robocop');
 
@@ -22,6 +25,5 @@ function startServer() {
     var server = app.listen(config.port, function () {
         console.log('My duty begins. Somewhere there is a crime happening.');
     });
-    app.use(bodyParser.json());
 }
 
