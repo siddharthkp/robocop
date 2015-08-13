@@ -81,7 +81,8 @@ function incrementTasksCounter() {
     tasksCached++;
     if (tasksCached === tasksFound) {
         console.log(tasksCached + ' tasks cached');
-        globalCallback();
+        tasksCached = 0; // resetting for self-update
+        if (globalCallback) globalCallback();
     }
 }
 
