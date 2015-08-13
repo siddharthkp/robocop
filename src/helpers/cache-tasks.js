@@ -1,5 +1,6 @@
 var request = require('request');
-var fs = require('fs');
+var fs = require('fs-extra');
+fs.emptyDirSync('cached_tasks');
 
 var tasksFound = 0;
 var globalCallback;
