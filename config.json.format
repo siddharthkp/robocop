@@ -1,5 +1,7 @@
 {
     "port": 4002,
-    "tasks": "/home/ubuntu/code/repo/robocop-tasks",
+    "repo_owner": "siddharthkp",
+    "repo_owner": "robocop"
+    "tasks_directory": "tools/robocop_tasks"
     "github_token": ""
 }
