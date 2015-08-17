@@ -18,7 +18,7 @@ function getRepoTree(callback) {
     var url = 'https://api.github.com/repos/';
     url += config.repo_owner + '/';
     url += config.repo_name + '/';
-    url += 'git/trees/adding-robocop-tasks';
+    url += 'git/trees/master';
     url += '?recursive=1';
     url += '&access_token=' + config.github_token;
     var options = {
