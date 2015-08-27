@@ -7,7 +7,7 @@ var globalCallback;
 
 var cacheTasks = function(callback) {
     globalCallback = callback;
-    getRepoTree(function(tree){
+    getRepoTree(function(tree) {
         filterTaskFiles(tree, function(taskFiles) {
             downloadFiles(taskFiles);
         })
