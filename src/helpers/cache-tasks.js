@@ -51,7 +51,8 @@ function filterTaskFiles(tree, callback) {
     }
     tasksFound = taskFiles.length;
     console.log('Caching ' + tasksFound + ' tasks');
-    callback(taskFiles);
+    if (!tasksFound) globalCallback();
+    else callback(taskFiles);
 }
 
 function downloadFiles(taskFiles) {
