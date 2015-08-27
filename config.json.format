@@ -1,7 +1,7 @@
 {
     "port": 4002,
     "repo_owner": "siddharthkp",
-    "repo_owner": "robocop"
+    "repo_name": "robocop"
     "tasks_directory": "tools/robocop_tasks"
     "github_token": ""
 }
