@@ -23,4 +23,4 @@ var condition = function(payload) {
     if (payload.event_type === 'push') return true;
 };
 
-robocop.helpers.register('Self update', condition, method);
+//robocop.helpers.register('Self update', condition, method);
