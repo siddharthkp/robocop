@@ -3,4 +3,5 @@ node_modules
 config.json
 npm-debug.log
 cached_tasks
+newrelic_agent.log
 
