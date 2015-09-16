@@ -3,5 +3,6 @@
     "repo_owner": "siddharthkp",
     "repo_name": "robocop"
     "tasks_directory": "tools/robocop_tasks"
-    "github_token": ""
+    "github_token": "",
+    "sentry_dsn": ""
 }

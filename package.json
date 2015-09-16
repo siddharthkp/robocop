@@ -25,6 +25,7 @@
     "express": "^4.13.1",
     "fs-extra": "^0.23.1",
     "gulp": "^3.9.0",
+    "raven": "^0.8.1",
     "request": "^2.60.0",
     "require-all": "^1.1.0"
   }
