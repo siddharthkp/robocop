@@ -1,5 +1,9 @@
 var comment = function(type, data) {
-    if (type === 'commit') commitComment(data);
+    if (config.debug) {
+        console.log(type);
+        console.log(data);
+    }
+    else if (type === 'commit') commitComment(data);
     else if (type === 'review') reviewComment(data);
 };
 
