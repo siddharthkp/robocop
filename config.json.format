@@ -1,10 +1,11 @@
 {
     "port": 4002,
+    "debug": "false",
+    "repo_dev_branch": "used only when debug=true",
     "repo_owner": "siddharthkp",
-    "repo_name": "robocop"
-    "tasks_directory": "tools/robocop_tasks"
+    "repo_name": "robocop",
+    "tasks_directory": "tools/robocop_tasks",
     "github_token": "",
     "sentry_dsn": "",
     "newrelic_key": "",
-    "debug": "false"
 }

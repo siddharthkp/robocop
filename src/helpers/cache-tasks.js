@@ -18,7 +18,10 @@ function getRepoTree(callback) {
     var url = 'https://api.github.com/repos/';
     url += config.repo_owner + '/';
     url += config.repo_name + '/';
-    url += 'git/trees/master';
+    var branch;
+    if (config.debug && config.repo_dev_branch) branch = config.repo_dev_branch;
+    else branch = 'master'
+    url += 'git/trees/' + branch;
     url += '?recursive=1';
     url += '&access_token=' + config.github_token;
     var options = {
