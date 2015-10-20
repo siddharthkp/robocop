@@ -7,7 +7,7 @@ var sniff = function(files, filetype, words, action) {
             changes = files[i].changes;
             for (var j = 0; j < changes.length; j++) {
                 if (isAddition(changes[j])) {
-                    if (doAction(changes[i], words)) {
+                    if (doAction(changes[j], words)) {
                         action(filename, j);
                     }
                 }
