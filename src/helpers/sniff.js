@@ -1,4 +1,4 @@
-var sniff = function(files, filetype, word, action) {
+var sniff = function(files, filetype, words, action) {
     var filename, extension, changes;
     for (var i = 0; i < files.length; i++) {
         filename = files[i].name;
@@ -7,7 +7,7 @@ var sniff = function(files, filetype, word, action) {
             changes = files[i].changes;
             for (var j = 0; j < changes.length; j++) {
                 if (isAddition(changes[j])) {
-                    if (changes[j].indexOf(word) !== -1) {
+                    if (doAction(changes[i], words)) {
                         action(filename, j);
                     }
                 }
@@ -18,6 +18,14 @@ var sniff = function(files, filetype, word, action) {
 
 function isAddition(line) {
     return line[0] === '+';
+}
+
+function doAction(change, words) {
+    if (typeof words === 'string') {
+        words = [words];
+    }
+    var regex = words.join('|');
+    return (new RegExp(regex)).test(change);
 }
 
 robocop.helpers.sniff = sniff;
