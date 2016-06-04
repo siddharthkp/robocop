@@ -1,3 +1,7 @@
+function isAddition(line) {
+    return line[0] === '+';
+}
+
 var sniff = function(files, filetype, word, action) {
     var filename, extension, changes;
     for (var i = 0; i < files.length; i++) {
@@ -14,11 +18,7 @@ var sniff = function(files, filetype, word, action) {
             }
         }
     }
-}
-
-function isAddition(line) {
-    return line[0] === '+';
-}
+};
 
 robocop.helpers.sniff = sniff;
 
