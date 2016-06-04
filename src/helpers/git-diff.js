@@ -8,8 +8,9 @@ var getDiff = function(pullRequest, callback) {
         }
     };
 
+    var successResponseCode = 200;
     request(options, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
+        if (!error && response.statusCode === successResponseCode) {
             var files = [];
             var filename, changes;
             var bodySplit = body.split('diff --git');
@@ -25,10 +26,10 @@ var getDiff = function(pullRequest, callback) {
                     changes: changes
                 });
             }
-            callback(files);
+            return callback(files);
         }
     });
-}
+};
 
 robocop.helpers.diff = getDiff;
 
