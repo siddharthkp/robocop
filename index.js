@@ -27,7 +27,7 @@ robocop.helpers.cacheTasks(function () {
 });
 
 function startServer() {
-    var server = app.listen(config.port, function () {
+    app.listen(config.port, function () {
         console.log('My duty begins. Somewhere there is a crime happening.');
     });
 }
