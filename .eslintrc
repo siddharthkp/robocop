@@ -211,5 +211,5 @@ rules:
   semi: 1
   indent: 1
   space-infix-ops: 1
-  vars-on-top: 1
+  vars-on-top: 0
   quotes: [1, "single"]
