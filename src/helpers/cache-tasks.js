@@ -5,22 +5,13 @@ fs.emptyDirSync('cached_tasks');
 var tasksFound = 0;
 var globalCallback;
 
-var cacheTasks = function(callback) {
-    globalCallback = callback;
-    getRepoTree(function(tree) {
-        filterTaskFiles(tree, function(taskFiles) {
-            downloadFiles(taskFiles);
-        })
-    });
-}
-
 function getRepoTree(callback) {
     var url = 'https://api.github.com/repos/';
     url += config.repo_owner + '/';
     url += config.repo_name + '/';
     var branch;
     if (config.debug && config.repo_dev_branch) branch = config.repo_dev_branch;
-    else branch = 'master'
+    else branch = 'master';
     url += 'git/trees/' + branch;
     url += '?recursive=1';
     url += '&access_token=' + config.github_token;
@@ -37,7 +28,7 @@ function getRepoTree(callback) {
             console.log('Some tasks might be missed! Please report as a bug.');
         }
         var tree = data.tree;
-        callback(tree);
+        return callback(tree);
     });
 }
 
@@ -54,30 +45,8 @@ function filterTaskFiles(tree, callback) {
     }
     tasksFound = taskFiles.length;
     console.log('Caching ' + tasksFound + ' tasks');
-    if (!tasksFound) globalCallback();
-    else callback(taskFiles);
-}
-
-function downloadFiles(taskFiles) {
-    for (var i = 0; i < taskFiles.length; i++) {
-        downloadFile(taskFiles[i].name, taskFiles[i].url);
-    }
-}
-
-function downloadFile(name, url) {
-    var options = {
-        url: url + '?access_token=' + config.github_token,
-        headers: {
-            'User-Agent': 'robcop',
-        }
-    };
-
-    request(options, function(error, response, body) {
-        var data = JSON.parse(body);
-        var contents = new Buffer(data.content, 'base64').toString('ascii');
-        fs.writeFile('cached_tasks/' + name, contents);
-        incrementTasksCounter();
-    });
+    if (!tasksFound) return globalCallback();
+    else return callback(taskFiles);
 }
 
 var tasksCached = 0;
@@ -90,4 +59,36 @@ function incrementTasksCounter() {
     }
 }
 
+function downloadFile(name, url) {
+    var options = {
+        url: url + '?access_token=' + config.github_token,
+        headers: {
+            'User-Agent': 'robcop'
+        }
+    };
+
+    request(options, function(error, response, body) {
+        var data = JSON.parse(body);
+        var contents = new Buffer(data.content, 'base64').toString('ascii');
+        fs.writeFile('cached_tasks/' + name, contents);
+        incrementTasksCounter();
+    });
+}
+
+function downloadFiles(taskFiles) {
+    for (var i = 0; i < taskFiles.length; i++) {
+        downloadFile(taskFiles[i].name, taskFiles[i].url);
+    }
+}
+
+var cacheTasks = function(callback) {
+    globalCallback = callback;
+    getRepoTree(function(tree) {
+        filterTaskFiles(tree, function(taskFiles) {
+            downloadFiles(taskFiles);
+        });
+    });
+};
+
 robocop.helpers.cacheTasks = cacheTasks;
+
