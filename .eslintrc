@@ -99,7 +99,7 @@ rules:
   yoda: 0
 
   # Strict
-  strict: 0
+  strict: 2
 
   # Variables
   init-declarations: 0
@@ -203,7 +203,6 @@ rules:
   prefer-template: 0
   require-yield: 0
 
-  strict-global: 1
   camelcase: 1
   new-cap: 1
   no-nested-ternary: 1
