@@ -10,6 +10,12 @@ app.use(bodyParser.json());
 
 GLOBAL.robocop = require('./src/robocop');
 
+function startServer() {
+    app.listen(config.port, function () {
+        console.log('My duty begins. Somewhere there is a crime happening.');
+    });
+}
+
 app.use(raven.middleware.express(config.sentry_dsn));
 
 console.log('My friends call me Murphy. You call me ...');
@@ -25,10 +31,4 @@ robocop.helpers.cacheTasks(function () {
     require('./src/hook');
     startServer();
 });
-
-function startServer() {
-    app.listen(config.port, function () {
-        console.log('My duty begins. Somewhere there is a crime happening.');
-    });
-}
 
