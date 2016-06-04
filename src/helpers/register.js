@@ -5,7 +5,7 @@ var register = function(name, condition, method) {
         method: method
     };
     robocop.tasks.push(task);
-}
+};
 
 robocop.helpers.register = register;
 
